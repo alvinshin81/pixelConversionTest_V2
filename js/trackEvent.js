@@ -54,6 +54,8 @@ function trackEvent() {
             event.preventDefault();
             console.log("트랙 ID: " + trackId.value);
             console.log("표준이벤트: " + standard);
+            console.log("태그값: " + tag.value);
+            console.log("상품 정보: " + productId.value);
             
             if(standard == "pageView"){
                 kakaoPixel(trackId.value).pageView(tag.value);
@@ -124,10 +126,8 @@ function trackEvent() {
                 }
             }   
             else {
-                kakaoPixel(trackId.value).pageView();
                 document.getElementById('sub_result').innerText = stdEvent.value + " 이벤트를 생성할 수 없습니다.";
             }
-
             document.getElementById('result').innerText = stdEvent.value + r;
         }
     }
