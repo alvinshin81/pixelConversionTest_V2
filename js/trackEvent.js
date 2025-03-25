@@ -29,16 +29,16 @@ function trackEvent() {
     const productNameA = "상품A " + productIdA;
     const productNameB = "상품B " + productIdB;
 
-    console.log("productId: " + productIdA);
-    console.log("productIdB: " + productIdB);
-    console.log("productQtyA: " + productQtyA);
-    console.log("productQtyB: " + productQtyB);
-    console.log("productQtyTotal: " + productQtyTotal);
-    console.log("productPriceA: " + productPriceA);
-    console.log("productPriceB: " + productPriceB);
-    console.log("productPriceTotal: " + productPriceTotal);
-    console.log("productNameA: " + productNameA);
-    console.log("productNameB: " + productNameB);
+    // console.log("productId: " + productIdA);
+    // console.log("productIdB: " + productIdB);
+    // console.log("productQtyA: " + productQtyA);
+    // console.log("productQtyB: " + productQtyB);
+    // console.log("productQtyTotal: " + productQtyTotal);
+    // console.log("productPriceA: " + productPriceA);
+    // console.log("productPriceB: " + productPriceB);
+    // console.log("productPriceTotal: " + productPriceTotal);
+    // console.log("productNameA: " + productNameA);
+    // console.log("productNameB: " + productNameB);
 
     if(stdEvent.value == 'select') {
         event.preventDefault();
@@ -59,22 +59,27 @@ function trackEvent() {
             
             if(standard == "pageView"){
                 kakaoPixel(trackId.value).pageView(tag.value);
+                document.getElementById('result').innerText = stdEvent.value + r;
             }
             else if(standard == "search"){
                 kakaoPixel(trackId.value).pageView();
                 kakaoPixel(trackId.value).search(tag.value);
+                document.getElementById('result').innerText = stdEvent.value + r;
             }
             else if(standard == "viewCart"){
                 kakaoPixel(trackId.value).pageView();
                 kakaoPixel(trackId.value).viewCart(tag.value);
+                document.getElementById('result').innerText = stdEvent.value + r;
             }
             else if(standard == "completeRegistration"){
                 kakaoPixel(trackId.value).pageView();
                 kakaoPixel(trackId.value).completeRegistration(tag.value);
+                document.getElementById('result').innerText = stdEvent.value + r;
             }
             else if(standard == "participation"){
                 kakaoPixel(trackId.value).pageView();
                 kakaoPixel(trackId.value).participation(tag.value);
+                document.getElementById('result').innerText = stdEvent.value + r;
             }
             else if(standard == "viewContent" || standard == "addToWishList" || standard == "addToCart" || standard == "purchase") {
                 if(!productId.value || !tag.value){
@@ -123,12 +128,12 @@ function trackEvent() {
                     document.getElementById('productQty').innerText = "상품 수량: " + productQtyA + ", " + productQtyB;
                     document.getElementById('productPrice').innerText = "상품 가격: " + productPriceA + ", " + productPriceB;
                     }
+                    document.getElementById('result').innerText = stdEvent.value + r;
                 }
             }   
             else {
                 document.getElementById('sub_result').innerText = stdEvent.value + " 이벤트를 생성할 수 없습니다.";
             }
-            document.getElementById('result').innerText = stdEvent.value + r;
         }
     }
 };
