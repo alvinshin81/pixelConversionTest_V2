@@ -2,7 +2,7 @@ function trackEvent() {
     let trackId = document.getElementById('trackId');
     let stdEvent = document.getElementById('stdEvent');
 
-    let buttonSubmit = document.getElementById('submit');
+    const r = " 완료";
 
     if(stdEvent.value == 'select') {
         event.preventDefault();
@@ -46,7 +46,6 @@ function trackEvent() {
                 document.getElementById('sub_result').innerText = stdEvent.value + " 이벤트를 생성할 수 없습니다.";
             }
 
-            const r = " 완료";
             document.getElementById('result').innerText = stdEvent.value + r;
         }
     }
