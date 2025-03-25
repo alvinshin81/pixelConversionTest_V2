@@ -1,6 +1,22 @@
+function activeBtn() {
+    var stdEvent = document.getElementById('stdEvent');
+    var btn = document.getElementById('submit');
+
+    if (stdEvent.value != 'select') {
+        btn.disabled = false;
+    }
+    else {
+        btn.disabled = true;
+    }
+}
+
+
+
 function trackEvent() {
     let trackId = document.getElementById('trackId');
     let stdEvent = document.getElementById('stdEvent');
+    let tag = document.getElementById('customeEvent');
+    let productId = document.getElementById('pId');
 
     const r = " 완료";
 
@@ -20,7 +36,10 @@ function trackEvent() {
             console.log("표준이벤트: " + stdEvent.value);
             
             if(stdEvent.value == "search"){
-                kakaoPixel(trackId.value).pageView();
+                kakaoPixel(trackId.value).pageView({
+                        id: productId.value,
+                        tag: tag.value
+                    });
                 kakaoPixel(trackId.value).search();
 
             }
