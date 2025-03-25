@@ -18,6 +18,19 @@
     <a href="./index.html" class="home-btn">
         <img src="./rsc/home-icon.png" alt="Home"/>
     </a>
+
+    <script type="text/javascript" charset="UTF-8" src="trackIds.js"></script> 
+    <script type="text/javascript">
+        // 외부 파일에 정의된 변수를 사용하기 위해 다시 정의 
+        const trackId = trackIdList; 
+
+        for(let i = 0; i < trackId.length; i++){
+            var tId = trackId[i].toString();
+
+            console.log(tId);
+            kakaoPixel(tId).pageView();
+        }
+    </script>
 </head>
 <body>
     <div class="hero bg-dark text-center py-1" style="margin-bottom: 10px;">
