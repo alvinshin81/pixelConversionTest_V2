@@ -14,47 +14,49 @@ const trackIdDbList = [
     var arr = trackIdDbList;
     
     let parent = document.querySelector('#trackIds');
-    const table = document.createElement('table');
-    const thead = document.createElement('thead');
-    const tbody = document.createElement('tbody');
-    const tr = document.createElement('tr');
-    const body_tr = document.createElement('tr');
-    const head_id = document.createElement('th');
-    const head_name = document.createElement('th');
-    const body_id = document.createElement('td');
-    const body_name = document.createElement('td');
-  
-    table.classList.add('table');
-    thead.classList.add('head');
-    head_id.classList.add('head_id');
-    head_name.classList.add('head_name');
-    body_id.classList.add('body_id');
-    body_name.classList.add('body_name');
-    tbody.classList.add('tbody');
-    tbody.setAttribute("id", "trackBody");
-  
-    parent.appendChild(table);
-    table.appendChild(thead);
-    thead.appendChild(tr);
-    tr.appendChild(head_id);
-    tr.appendChild(head_name);
-  
-    head_id.append('ID');
-    head_name.append('Name');
-  
-    table.appendChild(tbody);
-    console.log(arr.length);
-  
-    for (var i = 0; i < arr.length; i++) {
-        document.querySelector("#trackBody").append(body_tr);
-        const table = document.getElementById('trackBody');
-        const new_row = table.insertRow();
-  
-        let temp_html = ``;
-  
-        temp_html = '<td>' + arr[i].ID + '</td>';
-        temp_html += '<td>' + arr[i].NAME + '</td>';
-        new_row.insertAdjacentHTML('afterbegin', temp_html);
+    if (parent) {
+      const table = document.createElement('table');
+      const thead = document.createElement('thead');
+      const tbody = document.createElement('tbody');
+      const tr = document.createElement('tr');
+      const body_tr = document.createElement('tr');
+      const head_id = document.createElement('th');
+      const head_name = document.createElement('th');
+      const body_id = document.createElement('td');
+      const body_name = document.createElement('td');
+    
+      table.classList.add('table');
+      thead.classList.add('head');
+      head_id.classList.add('head_id');
+      head_name.classList.add('head_name');
+      body_id.classList.add('body_id');
+      body_name.classList.add('body_name');
+      tbody.classList.add('tbody');
+      tbody.setAttribute("id", "trackBody");
+    
+      parent.appendChild(table);
+      table.appendChild(thead);
+      thead.appendChild(tr);
+      tr.appendChild(head_id);
+      tr.appendChild(head_name);
+    
+      head_id.append('ID');
+      head_name.append('Name');
+    
+      table.appendChild(tbody);
+      console.log(arr.length);
+    
+      for (var i = 0; i < arr.length; i++) {
+          document.querySelector("#trackBody").append(body_tr);
+          const table = document.getElementById('trackBody');
+          const new_row = table.insertRow();
+    
+          let temp_html = ``;
+    
+          temp_html = '<td>' + arr[i].ID + '</td>';
+          temp_html += '<td>' + arr[i].NAME + '</td>';
+          new_row.insertAdjacentHTML('afterbegin', temp_html);
+      }
     }
   }
 
